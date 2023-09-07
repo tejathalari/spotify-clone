@@ -3,7 +3,6 @@
     <div class="flex" style="height: 88vh;">
       <!-- sidenav -->
       <Sidenav :albums="albums" />
-
       <!-- main content -->
       <div class="w-full h-full relative overflow-y-scroll">
         <!-- header -->
@@ -40,8 +39,8 @@
           </div>   
         </div>
         <!-- cards -->
-        <AlbumsList title="Recent Played" :recentAlbums="recentAlbums" />
-        <AlbumsList title="Made for Sai" :recentAlbums="recentAlbums" />
+        <AlbumsList title="Recent Played" :albums="recentAlbums" />
+        <AlbumsList title="Made for Sai" :albums="personalAlbums" />
       </div>
     </div>
     <!-- play bar -->

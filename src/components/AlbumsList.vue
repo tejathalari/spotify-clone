@@ -5,8 +5,8 @@
             <h2 class="pr-8 pt-4 text-xs text-gray-400 uppercase tracking-wider hover:underline mb-3">Show All</h2>
         </div>
         <div class="w-full flex flex-wrap">
-            <div v-for="recentAlbum in recentAlbums" class="p-2 w-48 relative">
-                <Card :recent="recentAlbum" />
+            <div v-for="album in albums" class="p-2 w-48 relative">
+                <Card :recent="album" />
             </div>`
         </div>
     </div>
@@ -20,7 +20,7 @@ export default {
         Card
     },
     props: {
-        recentAlbums: Array,
+        albums: Array,
         title: String
     }
 };
