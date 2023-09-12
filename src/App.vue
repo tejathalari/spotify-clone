@@ -41,6 +41,7 @@
         <!-- cards -->
         <AlbumsList title="Recent Played" :albums="recentAlbums" />
         <AlbumsList title="Made for Sai" :albums="personalAlbums" />
+        <AlbumsList title="Top Albums" :albums="personalAlbums" />
       </div>
     </div>
     <!-- play bar -->

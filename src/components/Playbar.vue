@@ -1,7 +1,13 @@
 <template>
     <!-- play bar -->
     <div class="w-full flex items-center justify-between px-3 bg-neutral-800 border-t border-black" style="height: 12vh;">
-      <div class="flex items-center ml-20">
+        <div class="bg-gray-700 w-16 h-12 p-0.5 shadow-md flex items-center justify-center">
+            <button class=" h-full w-full overflow-hidden">
+                <img src="pinkvenom.jpeg" alt="Pink Venom" class="h-full w-full object-cover" />
+            </button>
+        </div>
+        
+      <div class="flex items-center ml-14">
         <div>
           <h1 class="text-sm text-white tracking-wide">Pink Venom</h1>
           <h2 class="text-xs text-gray-400 tracking-wide">Black Pink</h2>
@@ -24,11 +30,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
           </svg>
         </button>
-        <button class="text-lg text-gray-400 hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+        <button @click.prevent="playSong('pinkvenom.mp3')" class="text-lg text-gray-400 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" v-if="pause === false" class="w-10 h-10">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
           </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" v-if="pause === true" class="w-10 h-10">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          
         </button>
         <button class="text-lg text-gray-400 hover:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -41,16 +51,18 @@
               </svg>              
           </button>
       </div>
-      <div class="w-full mx-40 ml-0.5">
-        <div class="w-full h-1 bg-gray-400 ml-40 rounded-full mt-4 flex items-center">
+      <div class="w-full mx-40 ml-0.5 mb-1">
+        <p class="text-xs text-gray-400 ml-20">0:30</p>
+        <div class="w-full h-1 bg-gray-400 ml-40 rounded-full flex items-center">
             <div class="h-1 rounded-full bg-green-400" style="width: 18%;">
             </div>
-            <div class="h-3 w-3 bg-white rounded-full -mx-1shadow"></div>
+            <div class="h-3 w-3 bg-white rounded-full -mx-1 shadow"></div>
         </div>
+        <p class="text-xs text-gray-400 ml-20 flex justify-end ">3:15</p>
       </div>
       </div>
-      <div class="flex items-center"> <!-- Removed ml-80 -->
-        <div class="ml-53 mr-20 flex items-center"> <!-- Added ml-80 -->
+      <div class="flex items-center">
+        <div class="ml-53 mr-20 flex items-center justify-end">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-base text-gray-400 ml-80 hover:text-white">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
@@ -70,6 +82,25 @@
   <script>
   export default {
     name: 'Playbar',
+    data () {
+        return {
+            pause: false,
+        };
+    },
+    methods: {
+    playSong(song) {
+        if (song) {
+            var audio = new Audio(song);
+            if (!this.pause) {
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0; // Reset the audio to the beginning
+            }
+            this.pause = !this.pause;
+        }
+    }
+}
   };
   </script>
   
