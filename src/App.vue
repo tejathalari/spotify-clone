@@ -64,7 +64,7 @@ export default {
     Playbar
   },
   data: function() {
-    return {
+    return { 
       setID: 'Home',
       albums: [
         {name: 'Bahubali'},

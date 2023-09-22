@@ -1,0 +1,33 @@
+{
+    "Albums": [
+        {"src": "dailymix1.jpeg", 
+        "title": "Daily Mix 1", 
+        "artist": "By Spotify"
+    },
+    {"src": "dailymix2.jpeg", 
+    "title": "Daily Mix 2", 
+    "artist": "By Spotify"
+    },
+    {"src": "dailymix3.jpeg", 
+    "title": "Daily Mix 3", 
+    "artist": "By Spotify"
+    },
+    {"src": "dailyimg4.jpeg", 
+    "title": "Daily Mix 4", 
+    "artist": "By Spotify"
+    },
+    {"src": "dailymix5.jpeg", 
+    "title": "Daily Mix 5", 
+    "artist": "By Spotify"
+    },
+    {"src": "dailymix6.jpeg", 
+    "title": "Daily Mix 5", 
+    "artist": "By Spotify"
+    }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }
+  
